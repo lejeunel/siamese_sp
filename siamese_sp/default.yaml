@@ -1,0 +1,32 @@
+frames: []
+
+epochs: 200
+depth: 3
+lr-decay: 0.3
+
+# optimizer
+lr: 0.001
+momentum: 0.9
+eps: 1e-08
+weight-decay: 0.0001
+
+# batch
+batch-size: 2
+batch-norm: True
+
+# dataloader
+n-workers: 4
+cuda: False
+
+# network input size
+in-shape: 224
+
+n-frames-epoch: 100
+
+# augmentation
+aug-noise: 0.1
+aug-flip-proba: 0.5
+aug-some: 2
+aug-scale: 0.2
+aug-rotate: 11.25
+aug-shear: 22.5
