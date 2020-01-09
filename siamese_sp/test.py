@@ -7,7 +7,7 @@ from torch.nn import functional as F
 from imgaug import augmenters as iaa
 
 
-path = '/home/ubelix/data/medical-labeling/Dataset30/'
+path = '/home/ubelix/lejeune/data/medical-labeling/Dataset30/'
 transf = iaa.Sequential([
     iaa.Resize(224),
     rescale_augmenter])
@@ -20,8 +20,7 @@ dataloader_prev = DataLoader(dl,
                              collate_fn=dl.collate_fn,
                              num_workers=0)
 
-model = Siamese(in_channels=3,
-                depth=4)
+model = Siamese()
 
 for data in dataloader_prev:
 

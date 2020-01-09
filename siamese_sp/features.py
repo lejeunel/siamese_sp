@@ -8,11 +8,11 @@ import matplotlib.pyplot as plt
 
 class Features:
     def __init__(self,
-                 boundary_maps,
+                 feature_maps,
                  labels,
                  n_region,
                  ball_radius=5):
-        self.boundary_maps = boundary_maps
+        self.feature_maps = feature_maps
         self.labels = labels
         self.label_contours = segmentation.find_boundaries(labels)
         self.selem = morphology.disk(ball_radius)

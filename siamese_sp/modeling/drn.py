@@ -254,12 +254,12 @@ class DRN(nn.Module):
             x = self.layer8(x)
             y.append(x)
 
-        if self.out_map:
-            x = self.fc(x)
-        else:
-            x = self.avgpool(x)
-            x = self.fc(x)
-            x = x.view(x.size(0), -1)
+        # if self.out_map:
+        #     x = self.fc(x)
+        # else:
+        #     x = self.avgpool(x)
+        #     x = self.fc(x)
+        #     x = x.view(x.size(0), -1)
 
         if self.out_middle:
             return x, y

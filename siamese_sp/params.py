@@ -24,23 +24,38 @@ def get_params():
     p.add('--epochs', type=int)
     p.add('--n-frames-epoch', type=int)
     p.add('--momentum', type=float)
-    p.add('--eps', type=float)
-    p.add('--lr-decay', type=float)
+    p.add('--lr-siam', type=float)
+    p.add('--lr-autoenc', type=float)
+    p.add('--lr-power', type=float)
+    p.add('--decay', type=float)
+    p.add('--gamma', type=float)
+
     p.add('--lr', type=float)
     p.add('--ds-split', type=float)
     p.add('--ds-shuffle', type=bool)
-    p.add('--weight-decay', type=float)
     p.add('--batch-size', type=int)
     p.add('--batch-norm', type=bool)
     p.add('--n-workers', type=int)
     p.add('--cuda', default=False, action='store_true')
     p.add('--in-shape', type=int)
-    p.add('--depth', type=int)
+
+    p.add('--n-segments-test', type=int)
+    p.add('--delta-segments-test', type=int)
+    p.add('--n-segments-train', type=int)
+    p.add('--delta-segments-train', type=int)
+
     p.add('--aug-noise', type=float)
     p.add('--aug-scale', type=float)
+    p.add('--aug-blur', type=float)
+    p.add('--aug-gamma', type=float)
     p.add('--aug-rotate', type=float)
     p.add('--aug-shear', type=float)
     p.add('--aug-flip-proba', type=float)
     p.add('--aug-some', type=int)
+
+    p.add('--sp-pooling-max', default=False, action='store_true')
+
+    p.add('--exp-name', default='')
+    p.add('--n-edges', type=int)
 
     return p

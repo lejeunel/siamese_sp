@@ -39,15 +39,16 @@ def setup_logging(log_path,
 def make_grid_rag(data, res):
 
     fig, ax = plt.subplots(len(res), 2)
+    ax = ax.reshape(len(res), 2)
     # make preview images
-    im = data['image'].cpu().numpy()
+    im = data['image_unnormal'].cpu().numpy()
     im = [np.rollaxis(im[i, ...], 0, 3) for i in range(im.shape[0])]
     truth = data['label/segmentation'].cpu().numpy()
     truth = [truth[i, 0, ...] for i in range(truth.shape[0])]
     labels = data['labels'].cpu().numpy()
     labels = [labels[i, ...][0] for i in range(labels.shape[0])]
     for i, (im_, truth_, labels_,
-            g) in enumerate(zip(im, truth, labels, data['graph'])):
+            g) in enumerate(zip(im, truth, labels, data['rag'])):
         truth_contour = segmentation.find_boundaries(truth_, mode='thick')
         g.add_edges_from(
             (e[0], e[1], dict(weight=res[i][j].detach().cpu().numpy()))
